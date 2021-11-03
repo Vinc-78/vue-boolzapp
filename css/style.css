@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/************************************************
+* Classi layout
+************************************************/
+.container {
+  position: fixed;
+  width: 920px;
+  margin: 25px calc((100% - 920px) / 2);
+  background-color: white;
+  height: calc(100% - 50px);
+  z-index: 100;
+  display: flex;
+  
+}
+
+.aside-left { 
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  }
+
+.chat-box { 
+  width: 60%;
+  height: 100%;
+  border:1px solid rgb(234, 234, 233);}
+
+/************************************************
+* Selettori TAG
+************************************************/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+main{height: 100vh;
+  background-color:  rgb(219, 219, 210);
+  position: relative;
+  top:0;
+  z-index: 1;}
+
+.sfondo_sup { position: absolute;
+top: 0;
+left: 0;
+height: 90px;
+width: 100%;
+background-color: rgb(12, 150, 136);
+z-index: -1;}
+
+
+/************************************************
+* Aside-left
+************************************************/
+/* Set nav-bar */
+.nav-left{
+  height: 80px;
+  flex-shrink: 0;
+  background-color: rgb(234, 234, 235);
+}
+
+.nav-left>.user {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left>.user>.img_user { 
+  width: 25%;
+  height: 100%;}
+
+
+.nav-left>.user>.img_user img { 
+  object-fit: contain;
+  height: 100%;
+  padding: 10px 15px;
+  border-radius: 50%;}
+
+.nav-left .user_name {
+  width: 35%;
+}
+
+.nav-left .user_icon {
+  text-align: center;
+  width: 40%;
+  font-size: 20px;
+  color:rgb(177, 178, 177); 
+}
+
+.nav-left .user_icon i {margin:0 5px;}
+
+/* Notifiche */
+.notifiche { 
+  height: 80px;
+  flex-shrink: 0;
+  background-color: rgb(143, 218, 251);
+  display: flex;
+  align-items: center;
+}
+
+.notifiche .notifiche-icon { 
+  
+  padding: 10px;
+  background-color: white;
+  color: rgb(143, 218, 251);
+  font-size: 20px;
+  border-radius: 50%;
+  margin: 15px 10px ;
+  text-align: center;
+}
+
+.notifiche .notifiche-testo a { 
+  color:grey;
+  font-size: 14px;}
+
+
+/* Cerca Utente */
+.cerca_utente{ 
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+
+}
+
+
+
+
+/* Set lista utenti e singolo utente */
+.lista_utenti{
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.utente{
+  display: flex;
+  height: 90px;
+  border: 1px solid rgb(211, 205, 205);
+}
+
+.utente>.immagine {height: 100%;
+                   width: 25%;}
+
+.utente>.immagine img {
+  object-fit: contain;
+  height: 100%;
+  padding: 10px 25px;
+  border-radius: 50%;
+   }
+
+.utente_dati{ 
+  margin: 10px;
+  height: 100%;
+  width: 75%;
+  position: relative;}
+
+.utente_dati>.data {position: absolute;
+                    top:0;
+                    right: 5px;}
+.utente_dati span {color:rgb(203, 204, 205)}
