@@ -76,7 +76,7 @@
           <div class="utente" v-for="(utente, indice) in chatList">
 
             <div class="immagine">
-              <img v-bind:src="utente.avatar" v-bind:alt="indice">
+              <img v-bind:src="utente.avatar" v-bind:alt="'avatar ' + (indice + 1)">
             </div>
             <div class="utente_dati">
               <div class="name">
@@ -127,7 +127,8 @@
         </div>
 
         <div class="chat-area">
-          <div class="mess uscita">
+
+          <div class="mess uscita"><!-- green -->
             <div class="testo-forma testo-uscita">
               <p>Hai portato a spasso il cane</p>
               <span>10/01/2020 15:30:55</span>
