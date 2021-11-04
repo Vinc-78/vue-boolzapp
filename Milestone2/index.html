@@ -73,8 +73,7 @@
 
         <div class="lista_utenti">
           <!-- Singolo Utente -->
-          <div class="utente" v-for="(utente, indice) in chatList" 
-          >
+          <div class="utente" v-for="(utente, indice) in chatList">
 
             <div class="card" @click="attivaChat(utente)">
 
@@ -118,7 +117,7 @@
               <div class="ultimo accesso">
                 <span>Ultimo accesso oggi alle </span>
                 <span>{{currentChat.messages[currentChat.messages.length - 1].timestamp}}</span>
-                
+
               </div>
 
             </div>
@@ -131,23 +130,32 @@
 
         </div>
 
-        <div class="chat-area">
+        <div class="chat-area" >
 
-          <div class="mess uscita">
-            <!-- green -->
-            <div class="testo-forma testo-uscita">
+          <div class="chat-user" v-for="(mes in currentChat.messages">
+            
+            <div class="testo-forma" :class="mes.status">
+              <p>{{mes.text}}</p>
+              <span>{{mes.timestamp}}</span>
+            </div>
+          </div>
+
+
+          <!-- 
+            <div class="testo-forma sent">
               <p>Hai portato a spasso il cane</p>
               <span>10/01/2020 15:30:55</span>
             </div>
-          </div>
+          
 
-          <div class="mess entrata">
-            <div class="testo-forma testo-entrata">
+          
+            <div class="testo-forma received">
               <p>Tutto a posto</p>
               <span>10/01/2020 16:15:22</span>
+            </div> -->
 
-            </div>
-          </div>
+
+
 
         </div>
 
