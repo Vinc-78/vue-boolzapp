@@ -3,7 +3,7 @@ Vue.config.devtools = true;
 new Vue({
   el: "#root",
   data: {
-    currentChat: 0,
+    currentChat: {},
     chatList: [
       {
         name:"Luca",
@@ -133,6 +133,10 @@ new Vue({
    
    
 
+  },
+
+  mounted() { 
+    this.currentChat=this.chatList[0];
   }
  
 });
