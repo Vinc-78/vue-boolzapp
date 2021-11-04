@@ -305,7 +305,7 @@ margin:0 10px;
 /* Set aree di input */
 
 input[type=text] {
-  width: 100%;
+  width: 95%;
   padding: 12px 20px;
   margin: 4px 0;
   display: inline-block;

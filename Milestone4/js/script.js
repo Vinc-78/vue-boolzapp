@@ -4,15 +4,18 @@ new Vue({
   el: "#root",
   data: {
     currentChat: {},
-    dataEora : `${new Date().toLocaleDateString().substr(0, 10)} ${new Date().toLocaleTimeString()}`,
-    nuovoMessDiTesto:"",
-   
+    dataEora: `${new Date().toLocaleDateString().substr(0, 10)} ${new Date().toLocaleTimeString()}`,
+    nuovoMessDiTesto: "",
+
+    utenteDaCercare: "",
+
     messRisposta: {
       text: "Tutto Ok",
       timestamp: "",
       status: "sent"
     },
-    iconMess:"fas fa-microphone",
+    iconMess: "fas fa-microphone",
+
     chatList: [
       {
         name: "Luca",
@@ -138,11 +141,11 @@ new Vue({
 
       this.currentChat = chatDaAttivare;
     },
-    changeIcon(){
-      this.iconMess="fas fa-paper-plane"
+    changeIcon() {
+      this.iconMess = "fas fa-paper-plane"
     },
-    
-    sendNewMessage(){
+
+    sendNewMessage() {
 
       let nuovoMess = {
         text: this.nuovoMessDiTesto,
@@ -150,17 +153,39 @@ new Vue({
         status: "sent"
 
       }
-      
+
       this.currentChat.messages.push(nuovoMess);
-      this.iconMess="fas fa-microphone";
-      this.nuovoMessDiTesto=""; 
+      this.iconMess = "fas fa-microphone";
+      this.nuovoMessDiTesto = "";
 
       setTimeout(() => {
         this.currentChat.messages.push(this.messRisposta);
       }, 1000);
+    },
+
+    ricerca() {
+
+            
+            let arrayFiltrato = [];
+            
+            this.chatList.forEach((element, i) => {
+                let nomeDaControllare = element.name.toLowerCase();
+            
+                if(nomeDaControllare.includes(this.utenteDaCercare.toLowerCase())){
+                    
+                    arrayFiltrato.push(this.chatList[i]);
+                    
+                };
+            });
+            
+            
+            return arrayFiltrato
+
+
+    },
+    azzeraRicerca() {
+      this.utenteDaCercare= "";
     }
-
-
 
 
   },
@@ -168,11 +193,12 @@ new Vue({
   mounted() {
     this.currentChat = this.chatList[0];
 
-    this.messRisposta= {
+    this.messRisposta = {
       text: "Tutto Ok",
       timestamp: this.dataEora,
       status: "received"
     }
+    
   }
 
 });
