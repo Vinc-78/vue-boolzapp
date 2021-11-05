@@ -9,6 +9,8 @@ new Vue({
 
     utenteDaCercare: "",
 
+    classepopUP:"",
+
     messRisposta: {
       text: "Tutto Ok",
       timestamp: "",
@@ -179,13 +181,24 @@ new Vue({
 
     cancellaMessaggio(indice) {
       this.currentChat.messages.splice(indice, 1);
+      this.classepopUP="";
     },
+    /* attiva(evento){
+      console.log(evento.target.parentElement.querySelector("#popUPMenu"));
+      
 
+
+    }
+ */
+
+    attiva(index){
+      this.classepopUP="display: inline-block;"
+    }
 
 
   },
 
-  mounted() {
+  beforeMount() {
     this.currentChat = this.chatList[0];
 
     this.messRisposta = {

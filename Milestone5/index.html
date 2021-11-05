@@ -92,7 +92,7 @@
                   <span>{{ getLastMessage(utente.messages) }}</span>
                 </div>
                 <div class="data">
-                  <span>{{utente.messages[utente.messages.length - 1].timestamp}}</span>
+                  <span>{{utente.messages.length === 0 ? "" : utente.messages[utente.messages.length - 1].timestamp}}</span>
                 </div>
               </div>
 
@@ -119,7 +119,7 @@
               </div>
               <div class="ultimo accesso">
                 <span>Ultimo accesso oggi alle </span>
-                <span>{{currentChat.messages[currentChat.messages.length - 1].timestamp}}</span>
+                <span>{{currentChat.messages.length === 0 ? "" : currentChat.messages[currentChat.messages.length - 1].timestamp}}</span>
 
               </div>
 
@@ -143,10 +143,10 @@
               <p>{{mes.text}}</p>
               <span>{{mes.timestamp}}</span>
 
-              <div id="icon"><i class="fas fa-angle-down"></i>
+              <div id="icon" tabindex="0" @click="attiva(i)"><i class="fas fa-angle-down"></i>
               </div>
 
-              <div id="popUPMenu"  >
+              <div id="popUPMenu" :style="classepopUP" >
                 <a href="#" style="color:grey">Informazioni</a>
                 <a href="#" @click="cancellaMessaggio(i)">Cancella</a>
 
