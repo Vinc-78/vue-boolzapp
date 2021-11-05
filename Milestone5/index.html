@@ -63,7 +63,7 @@
         <div class="cerca_utente">
           <div class="area_ricerca">
             <!--  <div class="area_ricerca-icon"><i class="fas fa-search" style="color: grey;"></i></div> -->
-            <div class="area_ricerca-input"> 
+            <div class="area_ricerca-input">
               <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="utenteDaCercare">
               <i v-if="utenteDaCercare !=='' " class="fas fa-times" @click="azzeraRicerca"></i>
             </div>
@@ -133,13 +133,27 @@
 
         </div>
 
-        <div class="chat-area" >
+        <div class="chat-area">
 
-          <div class="chat-user" v-for="(mes in currentChat.messages">
-            
-            <div class="testo-forma" :class="mes.status">
+          <div class="chat-user" v-for="(mes,i in currentChat.messages" >
+
+
+            <div class="testo-forma" :class="mes.status" >
+
               <p>{{mes.text}}</p>
               <span>{{mes.timestamp}}</span>
+
+              <div id="icon"><i class="fas fa-angle-down"></i>
+              </div>
+
+              <div id="popUPMenu"  >
+                <a href="#" style="color:grey">Informazioni</a>
+                <a href="#" @click="cancellaMessaggio(i)">Cancella</a>
+
+                
+              </div>
+
+
             </div>
           </div>
 
@@ -165,8 +179,8 @@
         <div class="chat-search">
           <div class="chat-search-left"><i class="far fa-smile"></i></div>
           <div class="chat-search-center">
-            <input type="text" placeholder="Scrivi un messaggio"
-            v-model="nuovoMessDiTesto" @click="changeIcon" @keyup.enter="sendNewMessage">
+            <input type="text" placeholder="Scrivi un messaggio" v-model="nuovoMessDiTesto" @click="changeIcon"
+              @keyup.enter="sendNewMessage">
           </div>
           <div class="chat-search-right" @click="sendNewMessage"><i v-bind:class="iconMess"></i></div>
 

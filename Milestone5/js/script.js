@@ -141,7 +141,7 @@ new Vue({
 
       this.currentChat = chatDaAttivare;
     },
-    
+
     changeIcon() {
       this.iconMess = "fas fa-paper-plane"
     },
@@ -166,27 +166,21 @@ new Vue({
 
     ricerca() {
 
-            
-            let arrayFiltrato = [];
-            
-            this.chatList.forEach((element, i) => {
-                let nomeDaControllare = element.name.toLowerCase();
-            
-                if(nomeDaControllare.includes(this.utenteDaCercare.toLowerCase())){
-                    
-                    arrayFiltrato.push(this.chatList[i]);
-                    
-                };
-            });
-            
-            
-            return arrayFiltrato
+
+      return this.chatList.filter(elemento => {
+        return elemento.name.toLowerCase().includes(this.utenteDaCercare.toLowerCase().trim())
+      })
 
 
     },
     azzeraRicerca() {
-      this.utenteDaCercare= "";
-    }
+      this.utenteDaCercare = "";
+    },
+
+    cancellaMessaggio(indice) {
+      this.currentChat.messages.splice(indice, 1);
+    },
+
 
 
   },
@@ -199,7 +193,7 @@ new Vue({
       timestamp: this.dataEora,
       status: "received"
     }
-    
+
   }
 
 });

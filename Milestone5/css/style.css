@@ -250,6 +250,7 @@ margin:0 10px;
   flex-direction: column;
   width: 38%;
   justify-content: center;
+  position: relative;
 }
 
 .testo-forma span{ 
@@ -280,7 +281,33 @@ margin:0 10px;
   margin-left: 50px;
  }
 
+ #icon{ position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20px;
+  color: grey;
+  display: none;}
 
+
+
+
+#popUPMenu {
+  
+  background-color: lightgray;
+  height: 65px;
+  width: 109px;
+  position: absolute;
+  right: -20px;
+  top: 20px;
+  text-align:ends;
+  padding: 5px;
+  line-height: 20px; 
+  border-radius: 15px;
+  display: none;
+}
+
+.testo-forma:hover #icon{display: inline-block;}
+.testo-forma:hover #popUPMenu{display: inline-block;}
 
 
 
