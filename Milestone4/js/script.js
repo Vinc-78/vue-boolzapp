@@ -128,7 +128,7 @@ new Vue({
 
     getLastMessage(testo) {
       // esistono messaggi?
-      if (testo.length === 0) {
+      if (!testo||testo.length === 0) {
         return "";
       }
 
@@ -141,6 +141,7 @@ new Vue({
 
       this.currentChat = chatDaAttivare;
     },
+    
     changeIcon() {
       this.iconMess = "fas fa-paper-plane"
     },
@@ -165,8 +166,36 @@ new Vue({
 
     ricerca() {
 
+          //****************** con reduce
+          let arrayFiltrato = []
+
+          arrayFiltrato=this.chatList.reduce((accumulatore, elementoCorrente) =>{
             
-            let arrayFiltrato = [];
+            if(elementoCorrente.name.toLowerCase().includes(this.utenteDaCercare.toLowerCase())){
+
+            accumulatore.push(elementoCorrente)}
+
+            return accumulatore;
+
+
+          },[]) 
+          
+          return arrayFiltrato 
+
+
+
+          //****************  con filter 
+
+          /* return this.chatList.filter(elemento => {
+            return elemento.name.toLowerCase().includes(this.utenteDaCercare.toLowerCase().trim())
+          }) */
+
+
+
+
+          // ****************  con forEach
+            
+           /*  let arrayFiltrato = [];
             
             this.chatList.forEach((element, i) => {
                 let nomeDaControllare = element.name.toLowerCase();
@@ -177,10 +206,12 @@ new Vue({
                     
                 };
             });
-            
-            
-            return arrayFiltrato
 
+            return arrayFiltrato 
+             */
+           
+            
+ 
 
     },
     azzeraRicerca() {
@@ -190,7 +221,7 @@ new Vue({
 
   },
 
-  mounted() {
+  beforeMount() {
     this.currentChat = this.chatList[0];
 
     this.messRisposta = {
