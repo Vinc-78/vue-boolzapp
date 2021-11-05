@@ -10,7 +10,7 @@ new Vue({
     utenteDaCercare: "",
 
     classepopUP:"",
-
+    
     messRisposta: {
       text: "Tutto Ok",
       timestamp: "",
@@ -183,13 +183,7 @@ new Vue({
       this.currentChat.messages.splice(indice, 1);
       this.classepopUP="";
     },
-    /* attiva(evento){
-      console.log(evento.target.parentElement.querySelector("#popUPMenu"));
-      
-
-
-    }
- */
+   
 
     attiva(index){
       this.classepopUP="display: inline-block;"

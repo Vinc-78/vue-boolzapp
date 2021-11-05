@@ -50,13 +50,14 @@ main{height: 100vh;
   top:0;
   z-index: 1;}
 
-.sfondo_sup { position: absolute;
-top: 0;
-left: 0;
-height: 90px;
-width: 100%;
-background-color: rgb(12, 150, 136);
-z-index: -1;}
+.sfondo_sup { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 90px;
+  width: 100%;
+  background-color: rgb(12, 150, 136);
+  z-index: -1;}
 
 
 /************************************************
@@ -133,9 +134,9 @@ z-index: -1;}
 }
 
 .cerca_utente .area_ricerca {
-display: flex;
-align-items: center;
-margin:0 10px;
+  display: flex;
+  align-items: center;
+  margin:0 10px;
 } 
 
 /* .cerca_utente .area_ricerca .area_ricerca-icon{width: 5%;} */
@@ -183,7 +184,7 @@ margin:0 10px;
        top: 10px;}
 
 
-.utente_dati span {color: lightgrey;
+.utente_dati span {color: rgb(150, 140, 140);
                    font-size: 14px;}
 
 
@@ -292,17 +293,17 @@ margin:0 10px;
 
 #popUPMenu {
   
-  background-color: lightgray;
-  height: 65px;
-  width: 109px;
+  background-color: rgb(228, 235, 244);
+  height: 68px;
+  width: 125px;
   position: absolute;
-  right: -20px;
-  top: 20px;
-  text-align:end;
-  padding: 5px;
-  line-height: 20px; 
-  border-radius: 15px;
-  display: none;
+  right: -50px;
+  top: 25px;
+  text-align: end;
+  padding: 12px;
+  line-height: 24px;
+  border-radius: 10px;
+  display: none; 
 }
 
 #attiva {display: inline-block;}
@@ -311,6 +312,7 @@ margin:0 10px;
 .testo-forma:hover #icon{display: inline-block;}
 /* #icon:focus ~ #popUPMenu{display: inline-block;} */
 
+.icon-container:hover #popUPMenu{display: inline-block;}
 
 
 /* Chat Search */
