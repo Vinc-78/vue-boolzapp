@@ -152,7 +152,7 @@ new Vue({
     },
 
     orario(){
-      this.timestamp = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
+      this.timestamp = dayjs().format("DD/MM/YYYY HH:mm:ss"),
   
       console.log("orario mess attuale ",this.timestamp)
   
