@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 
-
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script>dayjs().format()</script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 
@@ -78,7 +79,7 @@
           <!-- Singolo Utente -->
           <div class="utente" v-for="(utente, indice) in ricerca()">
 
-            <div class="card" @click="attivaChat(utente)">
+            <div class="card" @click="attivaChat(utente)"> 
 
               <div class="immagine">
                 <img v-bind:src="utente.avatar" v-bind:alt="'immagine ' + (indice+1)">

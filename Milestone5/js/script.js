@@ -4,18 +4,21 @@ new Vue({
   el: "#root",
   data: {
     currentChat: {},
-    dataEora: `${new Date().toLocaleDateString().substr(0, 10)} ${new Date().toLocaleTimeString()}`,
+    
     nuovoMessDiTesto: "",
 
     utenteDaCercare: "",
 
     classepopUP:"",
+
+    timestamp:"",
     
     messRisposta: {
       text: "Tutto Ok",
       timestamp: "",
       status: "sent"
     },
+    
     iconMess: "fas fa-microphone",
 
     chatList: [
@@ -148,11 +151,19 @@ new Vue({
       this.iconMess = "fas fa-paper-plane"
     },
 
+    orario(){
+      this.timestamp = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
+  
+      console.log("orario mess attuale ",this.timestamp)
+  
+      return this.timestamp
+      },
+
     sendNewMessage() {
 
       let nuovoMess = {
         text: this.nuovoMessDiTesto,
-        timestamp: this.dataEora,
+        timestamp: this.orario(),
         status: "sent"
 
       }
@@ -162,7 +173,14 @@ new Vue({
       this.nuovoMessDiTesto = "";
 
       setTimeout(() => {
-        this.currentChat.messages.push(this.messRisposta);
+        this.currentChat.messages.push( 
+          
+          this.messRisposta = {
+            text: "Tutto Ok",
+            timestamp: this.orario(),
+            status: "received"
+          }
+        );
       }, 1000);
     },
 
@@ -187,19 +205,19 @@ new Vue({
 
     attiva(index){
       this.classepopUP="display: inline-block;"
-    }
+    },
+
+    
 
 
   },
 
-  beforeMount() {
+  
+
+  beforeMount(u) {
     this.currentChat = this.chatList[0];
 
-    this.messRisposta = {
-      text: "Tutto Ok",
-      timestamp: this.dataEora,
-      status: "received"
-    }
+    
 
   }
 
